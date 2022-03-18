@@ -34,7 +34,7 @@ class HttpHelper
     {
         //		get和delete方式请求不能携带body体
         if (strtoupper($reqType) == 'GET' || strtoupper($reqType) == 'DELETE') {
-            $paramStr = null;
+            $paramStr = '';
         }
         //对body体做md5摘要
         $contentMd5 = UtilHelper::getContentMd5($paramStr);
