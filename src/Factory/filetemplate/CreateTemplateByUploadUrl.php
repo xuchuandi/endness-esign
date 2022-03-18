@@ -11,6 +11,7 @@ declare(strict_types=1);
  */
 namespace Endness\Factory\filetemplate;
 
+use Endness\Emun\HttpEmun;
 use Endness\Factory\request\EsignRequest;
 
 /**
@@ -109,7 +110,7 @@ class CreateTemplateByUploadUrl extends EsignRequest implements \JsonSerializabl
     public function build()
     {
         $this->setUrl('/v1/docTemplates/createByUploadUrl');
-        $this->setReqType(\HttpEmun::POST);
+        $this->setReqType(HttpEmun::POST);
     }
 
     /**
