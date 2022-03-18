@@ -14,6 +14,7 @@ namespace Endness\Factory\base;
 use Endness\Factory\filetemplate\CreateFileByTemplate;
 use Endness\Factory\filetemplate\CreateTemplateByUploadUrl;
 use Endness\Factory\filetemplate\GetFileUploadUrl;
+use Endness\Factory\filetemplate\GetUploadFileDetail;
 use Endness\Factory\filetemplate\UploadFile;
 
 /**
@@ -71,5 +72,15 @@ class FileTemplate
     public static function uploadFile($filePath, $contentType, $url)
     {
         return new UploadFile($filePath, $contentType, $url);
+    }
+
+    /**
+     * 通过文件ID 获取已上传的合同PDF详情.
+     * @param $fileId
+     * @return GetUploadFileDetail
+     */
+    public static function getUploadFileDetail($fileId)
+    {
+        return new GetUploadFileDetail($fileId);
     }
 }
