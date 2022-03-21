@@ -23,7 +23,7 @@ class CreateOrganizationsByThirdPartyUserId extends EsignRequest implements Json
 {
     private $thirdPartyUserId;
 
-    private $creator;
+    private $creator = '';
 
     private $name;
 
@@ -43,10 +43,10 @@ class CreateOrganizationsByThirdPartyUserId extends EsignRequest implements Json
      * @param $idType
      * @param $idNumber
      */
-    public function __construct($thirdPartyUserId, $creator, $name, $idType, $idNumber)
+    public function __construct($thirdPartyUserId, $name, $idType, $idNumber, $creator = null)
     {
         $this->thirdPartyUserId = $thirdPartyUserId;
-        $this->creator = $creator;
+        ! empty($creator) && $this->creator = $creator;
         $this->name = $name;
         $this->idType = $idType;
         $this->idNumber = $idNumber;

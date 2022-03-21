@@ -49,7 +49,7 @@ class Account
     }
 
     /**
-     * 机构账号创建.
+     * 机构账号创建. (ps:自2021年11月15日起，creator此字段调整为非必填，建议不传此值。).
      * @param $thirdPartyUserId
      * @param $creator
      * @param $name
@@ -57,9 +57,9 @@ class Account
      * @param $idNumber
      * @return CreateOrganizationsByThirdPartyUserId
      */
-    public static function createOrganizationsByThirdPartyUserId($thirdPartyUserId, $creator, $name, $idType, $idNumber)
+    public static function createOrganizationsByThirdPartyUserId($thirdPartyUserId, $name, $idType, $idNumber, $creator = null)
     {
-        return new CreateOrganizationsByThirdPartyUserId($thirdPartyUserId, $creator, $name, $idType, $idNumber);
+        return new CreateOrganizationsByThirdPartyUserId($thirdPartyUserId, $name, $idType, $idNumber, $creator);
     }
 
     /**
