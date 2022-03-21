@@ -11,6 +11,7 @@ declare(strict_types=1);
  */
 namespace Endness\Factory\signfile\documents;
 
+use Endness\Emun\HttpEmun;
 use Endness\Factory\request\EsignRequest;
 
 /**
@@ -51,7 +52,7 @@ class DownDocuments extends EsignRequest implements \JsonSerializable
     public function build()
     {
         $this->setUrl('/v1/signflows/' . $this->flowId . '/documents');
-        $this->setReqType(\HttpEmun::GET);
+        $this->setReqType(HttpEmun::GET);
     }
 
     /**

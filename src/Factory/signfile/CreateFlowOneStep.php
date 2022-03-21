@@ -11,6 +11,7 @@ declare(strict_types=1);
  */
 namespace Endness\Factory\signfile;
 
+use Endness\Emun\HttpEmun;
 use Endness\Factory\request\EsignRequest;
 
 /**
@@ -135,7 +136,7 @@ class CreateFlowOneStep extends EsignRequest implements \JsonSerializable
     public function build()
     {
         $this->setUrl('/api/v2/signflows/createFlowOneStep');
-        $this->setReqType(\HttpEmun::POST);
+        $this->setReqType(HttpEmun::POST);
     }
 
     /**

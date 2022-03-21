@@ -11,6 +11,7 @@ declare(strict_types=1);
  */
 namespace Endness\Factory\signfile\signers;
 
+use Endness\Emun\HttpEmun;
 use Endness\Factory\request\EsignRequest;
 
 /**
@@ -51,6 +52,6 @@ class QrySigners extends EsignRequest
     public function build()
     {
         $this->setUrl('/v1/signflows/' . $this->flowId . '/signers');
-        $this->setReqType(\HttpEmun::GET);
+        $this->setReqType(HttpEmun::GET);
     }
 }

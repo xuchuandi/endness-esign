@@ -11,6 +11,7 @@ declare(strict_types=1);
  */
 namespace Endness\Factory\signfile\signfields;
 
+use Endness\Emun\HttpEmun;
 use Endness\Factory\request\EsignRequest;
 
 /**
@@ -98,6 +99,6 @@ class QrySignFields extends EsignRequest
             $url = $url . '&signfieldIds=' . $this->signfieldIds;
         }
         $this->setUrl($url);
-        $this->setReqType(\HttpEmun::GET);
+        $this->setReqType(HttpEmun::GET);
     }
 }

@@ -11,6 +11,7 @@ declare(strict_types=1);
  */
 namespace Endness\Factory\signfile\signfields;
 
+use Endness\Emun\HttpEmun;
 use Endness\Factory\request\EsignRequest;
 
 /**
@@ -73,7 +74,7 @@ class CreateHandSign extends EsignRequest implements \JsonSerializable
     public function build()
     {
         $this->setUrl('/v1/signflows/' . $this->flowId . '/signfields/handSign');
-        $this->setReqType(\HttpEmun::POST);
+        $this->setReqType(HttpEmun::POST);
     }
 
     /**

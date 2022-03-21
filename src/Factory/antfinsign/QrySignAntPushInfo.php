@@ -11,6 +11,7 @@ declare(strict_types=1);
  */
 namespace Endness\Factory\antfinsign;
 
+use Endness\Emun\HttpEmun;
 use Endness\Factory\request\EsignRequest;
 
 /**
@@ -49,7 +50,7 @@ class QrySignAntPushInfo extends EsignRequest implements \JsonSerializable
     public function build()
     {
         $this->setUrl('/v1/querySignAntPushInfo');
-        $this->setReqType(\HttpEmun::POST);
+        $this->setReqType(HttpEmun::POST);
     }
 
     /**

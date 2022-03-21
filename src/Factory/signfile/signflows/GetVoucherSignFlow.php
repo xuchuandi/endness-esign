@@ -11,6 +11,7 @@ declare(strict_types=1);
  */
 namespace Endness\Factory\signfile\signflows;
 
+use Endness\Emun\HttpEmun;
 use Endness\Factory\request\EsignRequest;
 
 /**
@@ -51,6 +52,6 @@ class GetVoucherSignFlow extends EsignRequest
     public function build()
     {
         $this->setUrl('/api/v2/signflows/' . $this->flowId . '/getVoucher');
-        $this->setReqType(\HttpEmun::GET);
+        $this->setReqType(HttpEmun::GET);
     }
 }

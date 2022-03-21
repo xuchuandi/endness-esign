@@ -11,6 +11,7 @@ declare(strict_types=1);
  */
 namespace Endness\Factory\signfile\pdfverify;
 
+use Endness\Emun\HttpEmun;
 use Endness\Factory\request\EsignRequest;
 
 /**
@@ -75,7 +76,7 @@ class PdfVerify extends EsignRequest implements \JsonSerializable
             $url = $url . '&flowId=' . $this->flowId;
         }
         $this->setUrl($url);
-        $this->setReqType(\HttpEmun::GET);
+        $this->setReqType(HttpEmun::GET);
     }
 
     /**

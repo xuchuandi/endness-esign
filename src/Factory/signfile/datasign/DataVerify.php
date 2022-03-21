@@ -11,6 +11,7 @@ declare(strict_types=1);
  */
 namespace Endness\Factory\signfile\datasign;
 
+use Endness\Emun\HttpEmun;
 use Endness\Factory\request\EsignRequest;
 
 /**
@@ -73,7 +74,7 @@ class DataVerify extends EsignRequest implements \JsonSerializable
     public function build()
     {
         $this->setUrl('/v1/dataSign/verify');
-        $this->setReqType(\HttpEmun::POST);
+        $this->setReqType(HttpEmun::POST);
     }
 
     /**

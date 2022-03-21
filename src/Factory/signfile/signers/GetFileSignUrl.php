@@ -11,6 +11,7 @@ declare(strict_types=1);
  */
 namespace Endness\Factory\signfile\signers;
 
+use Endness\Emun\HttpEmun;
 use Endness\Factory\request\EsignRequest;
 
 /**
@@ -143,6 +144,6 @@ class GetFileSignUrl extends EsignRequest
             $url = $url . '&appScheme=' . $this->appScheme;
         }
         $this->setUrl($url);
-        $this->setReqType(\HttpEmun::GET);
+        $this->setReqType(HttpEmun::GET);
     }
 }

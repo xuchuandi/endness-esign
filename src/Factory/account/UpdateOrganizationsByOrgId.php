@@ -11,6 +11,7 @@ declare(strict_types=1);
  */
 namespace Endness\Factory\account;
 
+use Endness\Emun\HttpEmun;
 use Endness\Factory\request\EsignRequest;
 
 /**
@@ -139,7 +140,7 @@ class UpdateOrganizationsByOrgId extends EsignRequest implements \JsonSerializab
     public function build()
     {
         $this->setUrl('/v1/organizations/' . $this->orgId);
-        $this->setReqType(\HttpEmun::PUT);
+        $this->setReqType(HttpEmun::PUT);
     }
 
     /**
