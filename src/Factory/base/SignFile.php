@@ -22,6 +22,7 @@ use Endness\Factory\signfile\datasign\DataVerify;
 use Endness\Factory\signfile\documents\CreateDocuments;
 use Endness\Factory\signfile\documents\DeleteDocuments;
 use Endness\Factory\signfile\documents\DownDocuments;
+use Endness\Factory\signfile\documents\SearchWordsDocuments;
 use Endness\Factory\signfile\pdfverify\PdfVerify;
 use Endness\Factory\signfile\signers\GetFileSignUrl;
 use Endness\Factory\signfile\signers\QrySigners;
@@ -313,5 +314,17 @@ class SignFile
     public static function startSignFlow($flowId)
     {
         return new StartSignFlow($flowId);
+    }
+
+    /**
+     * Notes: 搜索关键字坐标
+     * User: Endness
+     * Date: 2022/3/22
+     * Time: 10:25.
+     * @param $fileId
+     */
+    public static function searchWordsPosition($fileId)
+    {
+        return new SearchWordsDocuments($fileId);
     }
 }
