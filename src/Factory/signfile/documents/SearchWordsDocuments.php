@@ -22,14 +22,18 @@ class SearchWordsDocuments extends EsignRequest implements \JsonSerializable
 {
     private $fileId;
 
+    private $keywords; //多个关键字用英文逗号相连
+
     /**
      * DeleteDocuments constructor.
      * @param $fileIds
      * @param mixed $fileId
+     * @param $keywords
      */
-    public function __construct($fileId)
+    public function __construct($fileId, $keywords)
     {
         $this->fileId = $fileId;
+        $this->keywords = $keywords;
     }
 
     /**
@@ -41,9 +45,8 @@ class SearchWordsDocuments extends EsignRequest implements \JsonSerializable
     }
 
     /**
-     * @param mixed $fileIds
      * @param mixed $fileId
-     * @return DeleteDocuments
+     * @return
      */
     public function setFileId($fileId)
     {
@@ -51,10 +54,28 @@ class SearchWordsDocuments extends EsignRequest implements \JsonSerializable
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getKeywords()
+    {
+        return $this->keywords;
+    }
+
+    /**
+     * @param mixed $keywords
+     * @return
+     */
+    public function setKeywords($keywords)
+    {
+        $this->keywords = $keywords;
+        return $this;
+    }
+
     public function build()
     {
-        $this->setUrl('/v1/documents/' . $this->fileId . '/searchWordsPosition');
-        $this->setReqType(HttpEmun::DELETE);
+        $this->setUrl('/v1/documents/' . $this->fileId . '/searchWordsPosition?keywords=' . $this->keywords);
+        $this->setReqType(HttpEmun::GET);
     }
 
     /**

@@ -322,9 +322,10 @@ class SignFile
      * Date: 2022/3/22
      * Time: 10:25.
      * @param $fileId
+     * @param $keywords
      */
-    public static function searchWordsPosition($fileId)
+    public static function searchWordsPosition($fileId, $keywords)
     {
-        return new SearchWordsDocuments($fileId);
+        return new SearchWordsDocuments($fileId, $keywords);
     }
 }
