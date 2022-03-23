@@ -48,7 +48,8 @@ class UtilHelper
         } else {
             $stringToSign .= $url;
         }
-        $signature = hash_hmac('sha256', utf8_encode($stringToSign), utf8_encode(Factory::getProjectScert()), true);
+
+        $signature = hash_hmac('sha256', $stringToSign, Factory::getProjectScert(), true);
         return base64_encode($signature);
     }
 
