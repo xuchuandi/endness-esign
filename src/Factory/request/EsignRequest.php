@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace Endness\Factory\request;
 
 use Endness\Helper\HttpHelper;
+use Hyperf\Utils\Codec\Json;
 use ReflectionClass;
 
 /**
@@ -32,7 +33,7 @@ abstract class EsignRequest
         }
         $build = $reflectionClass->getMethod('build');
         $build->invoke($this);
-        $paramStr = json_encode($this, JSON_UNESCAPED_SLASHES);
+        $paramStr = Json::encode($this);
         if ($paramStr == '[]') {
             $paramStr = '{}';
         }

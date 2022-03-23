@@ -30,15 +30,25 @@ class GetFileSignUrl extends EsignRequest
 
     private $appScheme;
 
+    private $params = [];
+
     /**
      * GetFileSignUrl constructor.
      * @param $flowId
      * @param $accountId
+     * @param $params
      */
-    public function __construct($flowId, $accountId)
+    public function __construct($flowId, $accountId, $params = [])
     {
         $this->flowId = $flowId;
         $this->accountId = $accountId;
+        ! empty($params) && $this->params = $this->paramsHandel($params);
+    }
+
+    public function setParams($params)
+    {
+        ! empty($params) && $this->params = $this->paramsHandel($params);
+        return $this;
     }
 
     /**
@@ -143,7 +153,23 @@ class GetFileSignUrl extends EsignRequest
         if ($this->appScheme !== null) {
             $url = $url . '&appScheme=' . $this->appScheme;
         }
+        if (! empty($this->params) && empty($this->organizeId) && empty($this->urlType) && empty($this->appScheme)) {
+            $url = $url . '&' . http_build_query($this->params);
+        }
         $this->setUrl($url);
         $this->setReqType(HttpEmun::GET);
+    }
+
+    private function paramsHandel($params)
+    {
+        $accessParams = ['organizeId', 'urlType', 'appScheme', 'clientType'];
+        if (is_array($params) && ! empty($params)) {
+            foreach ($params as $param => $value) {
+                if (! in_array($param, $accessParams)) {
+                    unset($params[$param]);
+                }
+            }
+            return $params;
+        }
     }
 }

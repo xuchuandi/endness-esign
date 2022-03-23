@@ -178,9 +178,10 @@ class SignFile
      * 获取签署地址
      * @param $flowId
      * @param $accountId
+     * @param $params
      * @return GetFileSignUrl
      */
-    public static function getFileSignUrl($flowId, $accountId)
+    public static function getFileSignUrl($flowId, $accountId, array $params = [])
     {
         return new GetFileSignUrl($flowId, $accountId);
     }
