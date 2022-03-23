@@ -183,7 +183,7 @@ class SignFile
      */
     public static function getFileSignUrl($flowId, $accountId, array $params = [])
     {
-        return new GetFileSignUrl($flowId, $accountId);
+        return new GetFileSignUrl($flowId, $accountId, $params);
     }
 
     /**
