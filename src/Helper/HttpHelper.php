@@ -42,6 +42,14 @@ class HttpHelper
         //传入生成的bodyMd5,加上其他请求头部信息拼接成字符串,整体做sha256签名
         $reqSignature = UtilHelper::getSignature($reqType, '*/*', 'application/json; charset=UTF-8', $contentMd5, '', '', $url);
         $url = Factory::getHost() . $url;
+        //解决get请求搜索关键词坐标位置api中的中文乱码问题
+        if (strtoupper($reqType) == 'GET') {
+            $urlDomain = strstr($url, '?', true);
+            parse_str(substr($url, intval(strpos($url, '?') + 1)), $urlPatch);
+            $urlParams = http_build_query($urlPatch);
+            $url = sprintf($urlDomain . '%s' . $urlParams, '?');
+        }
+
         return HttpCfgHelper::sendHttp($reqType, $url, self::buildCommHeader($contentMd5, $reqSignature), $paramStr);
     }
 
