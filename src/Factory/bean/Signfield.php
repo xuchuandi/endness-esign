@@ -25,6 +25,8 @@ class Signfield implements \JsonSerializable
 
     private $sealId;
 
+    private $sealIds;
+
     private $sealType;
 
     private $signType;
@@ -114,6 +116,24 @@ class Signfield implements \JsonSerializable
     public function setSealId($sealId)
     {
         $this->sealId = $sealId;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSealIds()
+    {
+        return $this->sealIds;
+    }
+
+    /**
+     * @param mixed $sealIds
+     * @return Signfield
+     */
+    public function setSealIds($sealIds)
+    {
+        $this->sealIds = $sealIds;
         return $this;
     }
 
