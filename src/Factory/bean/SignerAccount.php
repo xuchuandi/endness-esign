@@ -21,6 +21,8 @@ class SignerAccount implements \JsonSerializable
 
     private $authorizedAccountId;
 
+    private array $willTypes;
+
     /**
      * @return mixed
      */
@@ -54,6 +56,24 @@ class SignerAccount implements \JsonSerializable
     public function setAuthorizedAccountId($authorizedAccountId)
     {
         $this->authorizedAccountId = $authorizedAccountId;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getWillTypes()
+    {
+        return $this->willTypes;
+    }
+
+    /**
+     * @param array $willTypes
+     * @return
+     */
+    public function setWillTypes($willTypes)
+    {
+        $this->willTypes = $willTypes;
         return $this;
     }
 
